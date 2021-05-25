@@ -1,4 +1,6 @@
 import { createMedia } from '@artsy/fresnel';
+import React from 'react';
+import PropTypes from 'prop-types';
 
 import { DesktopContainer } from './DesktopContainer';
 import { MobileContainer } from './MobileContainer';
@@ -17,8 +19,15 @@ export const ResponsiveContainer = ({ children }) => (
      * they will be rendered twice for SSR.
      */
     <MediaContextProvider>
-      <DesktopContainer>{children}</DesktopContainer>
-      <MobileContainer>{children}</MobileContainer>
+      <Media at="mobile">
+        <MobileContainer>{children}</MobileContainer>
+      </Media>
+      <Media at="tablet">
+        <MobileContainer>{children}</MobileContainer>
+      </Media>
+      <Media at="computer">
+        <DesktopContainer>{children}</DesktopContainer>
+      </Media>
     </MediaContextProvider>
 );
   

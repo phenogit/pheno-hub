@@ -1,7 +1,35 @@
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { createMedia } from '@artsy/fresnel';
+import {
+    Button,
+    Container,
+    Divider,
+    Grid,
+    Header,
+    Icon,
+    Image,
+    List,
+    Menu,
+    Segment,
+    Sidebar,
+    Visibility,
+  } from 'semantic-ui-react';
+
+import { HomepageHeading } from '../HomepageHeading';
+
 /* Heads up!
  * Neither Semantic UI nor Semantic UI React offer a responsive navbar, however, it can be implemented easily.
  * It can be more complicated, but you can create really flexible markup.
  */
+
+const { Media } = createMedia({
+    breakpoints: {
+      mobile: 0,
+      tablet: 768,
+      computer: 1024,
+    },
+});
 export class DesktopContainer extends Component {
     state = {}
   
