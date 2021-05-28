@@ -1,22 +1,16 @@
 /* eslint-disable max-classes-per-file */
 /* eslint-disable react/no-multi-comp */
 /* reference: https://github.com/Semantic-Org/Semantic-UI-React/blob/master/docs/src/layouts/HomepageLayout.js */
-import { createMedia } from '@artsy/fresnel';
-import PropTypes from 'prop-types';
-import React, { Component } from 'react';
+import React from 'react';
 import {
   Button,
   Container,
   Divider,
   Grid,
   Header,
-  Icon,
   Image,
   List,
-  Menu,
   Segment,
-  Sidebar,
-  Visibility,
 } from 'semantic-ui-react';
 
 import { ResponsiveContainer } from '../containers/ResponsiveContainer';
