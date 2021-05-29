@@ -25,14 +25,15 @@ const { Media } = createMedia({
     },
 });
 export class DesktopHeader extends Component {
-    state = {}
+    state = { activeItem: "home" };
   
-    hideFixedMenu = () => this.setState({ fixed: false })
-    showFixedMenu = () => this.setState({ fixed: true })
+    hideFixedMenu = () => this.setState({ fixed: false });
+    showFixedMenu = () => this.setState({ fixed: true });
+    handleItemClick = (e, { name }) => this.setState({ activeItem: name });
   
     render() {
-      const { children } = this.props
-      const { fixed } = this.state
+      const { children } = this.props;
+      const { fixed, activeItem } = this.state;
   
       return (
         <Media greaterThan='mobile'>
@@ -56,11 +57,20 @@ export class DesktopHeader extends Component {
               >
                 <Container>
                   {
-                    HOME_MENU.map((item, index) => {
+                    HOME_MENU.map((item) => {
                       if (item.type === 'text') {
-                        item.label += "text";
+                        return (
+                          <Menu.Item
+                            as='a'
+                            name={item.name}
+                            key={item.name}
+                            active={activeItem === item.name}
+                            onClick={this.handleItemClick}
+                          >
+                            {item.label}
+                          </Menu.Item>);
                       }
-                      return <Menu.Item key={item.label}>{item.label}</Menu.Item>;
+                      
                     })
                   }
                   <Menu.Item as='a' active>

@@ -1,22 +1,27 @@
 export const HOME_MENU = [
     {
-        label: "Home",
-        type: "text"
+        name: 'home',
+        label: 'Home',
+        type: 'text'
     },
     {
-        label: "Kandan",
-        type: "text"
+        name: 'kandan',
+        label: 'Kandan',
+        type: 'text'
     },
     {
-        label: "Blog",
-        type: "text"
+        name: 'blog',
+        label: 'Blog',
+        type: 'text'
     },
     {
-        label: "Login",
-        type: "action"
+        name: 'login',
+        label: 'Login',
+        type: 'action'
     },
     {
-        label: "Sign Up",
-        type: "action"
+        name: 'signup',
+        label: 'Sign Up',
+        type: 'action'
     }
 ];
