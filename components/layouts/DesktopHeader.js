@@ -25,7 +25,7 @@ const { Media } = createMedia({
     },
 });
 export class DesktopHeader extends Component {
-    state = { activeItem: "home" };
+    state = { activeItem: 'home' };
   
     hideFixedMenu = () => this.setState({ fixed: false });
     showFixedMenu = () => this.setState({ fixed: true });
@@ -73,12 +73,7 @@ export class DesktopHeader extends Component {
                       
                     })
                   }
-                  <Menu.Item as='a' active>
-                    Home
-                  </Menu.Item>
-                  <Menu.Item as='a'>Work</Menu.Item>
-                  <Menu.Item as='a'>Company</Menu.Item>
-                  <Menu.Item as='a'>Careers</Menu.Item>
+                  
                   <Menu.Item position='right'>
                     <Button as='a' inverted={!fixed}>
                       Log in
