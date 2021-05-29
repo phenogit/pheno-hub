@@ -10,6 +10,7 @@ import {
   } from 'semantic-ui-react';
 
 import { HomepageHeading } from '../HomepageHeading';
+import { HOME_MENU } from '../../settings/HOME_MENU';
 
 /* Heads up!
  * Neither Semantic UI nor Semantic UI React offer a responsive navbar, however, it can be implemented easily.
@@ -54,6 +55,14 @@ export class DesktopContainer extends Component {
                 size='large'
               >
                 <Container>
+                  {
+                    HOME_MENU.map((item, index) => {
+                      if (item.type === 'text') {
+                        item.label += "text";
+                      }
+                      return <Menu.Item key={item.label}>{item.label}</Menu.Item>;
+                    })
+                  }
                   <Menu.Item as='a' active>
                     Home
                   </Menu.Item>
