@@ -20,7 +20,7 @@ const { Media } = createMedia({
     },
 });
 
-export class MobileContainer extends Component {
+export class MobileHeader extends Component {
     state = {}
   
     handleSidebarHide = () => this.setState({ sidebarOpened: false })
@@ -85,6 +85,6 @@ export class MobileContainer extends Component {
     }
   }
   
-  MobileContainer.propTypes = {
+  MobileHeader.propTypes = {
     children: PropTypes.node,
   }

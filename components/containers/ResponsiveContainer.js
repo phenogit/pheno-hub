@@ -2,8 +2,8 @@ import { createMedia } from '@artsy/fresnel';
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { DesktopContainer } from './DesktopContainer';
-import { MobileContainer } from './MobileContainer';
+import { DesktopHeader } from '../layouts/DesktopHeader';
+import { MobileHeader } from './MobileHeader';
 
 const { MediaContextProvider, Media } = createMedia({
     breakpoints: {
@@ -20,13 +20,13 @@ export const ResponsiveContainer = ({ children }) => (
      */
     <MediaContextProvider>
       <Media at="mobile">
-        <MobileContainer>{children}</MobileContainer>
+        <MobileHeader>{children}</MobileHeader>
       </Media>
       <Media at="tablet">
-        <MobileContainer>{children}</MobileContainer>
+        <MobileHeader>{children}</MobileHeader>
       </Media>
       <Media at="computer">
-        <DesktopContainer>{children}</DesktopContainer>
+        <DesktopHeader>{children}</DesktopHeader>
       </Media>
     </MediaContextProvider>
 );

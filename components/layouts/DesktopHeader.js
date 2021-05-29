@@ -24,7 +24,7 @@ const { Media } = createMedia({
       computer: 1024,
     },
 });
-export class DesktopContainer extends Component {
+export class DesktopHeader extends Component {
     state = {}
   
     hideFixedMenu = () => this.setState({ fixed: false })
@@ -89,6 +89,6 @@ export class DesktopContainer extends Component {
     }
   }
   
-  DesktopContainer.propTypes = {
+  DesktopHeader.propTypes = {
     children: PropTypes.node,
   }
