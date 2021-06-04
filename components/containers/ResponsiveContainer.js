@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { DesktopHeader } from '../layouts/DesktopHeader';
-import { MobileHeader } from './MobileHeader';
+import { MobileHeader } from '../layouts/MobileHeader';
 
 const { MediaContextProvider, Media } = createMedia({
     breakpoints: {
