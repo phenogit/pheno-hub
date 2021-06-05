@@ -17,10 +17,10 @@ const randomQuoteFetcher = async (url) => {
 }
 
 /* Heads up!
- * HomepageHeading uses inline styling, however it's not the best practice. Use CSS or styled
+ * RandomQuote uses inline styling, however it's not the best practice. Use CSS or styled
  * components for such things.
  */
-export const HomepageHeading = ({ mobile }) => {
+export const RandomQuote = ({ mobile }) => {
   const { data, error } = useSWR('/api/randomQuote', randomQuoteFetcher, {
     refreshInterval: 20000
   });
@@ -70,6 +70,6 @@ export const HomepageHeading = ({ mobile }) => {
   
 }
   
-  HomepageHeading.propTypes = {
-    mobile: PropTypes.bool,
-  }
+RandomQuote.propTypes = {
+  mobile: PropTypes.bool,
+}

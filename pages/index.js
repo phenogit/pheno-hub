@@ -1,7 +1,7 @@
-import HomepageLayout from '../components/layouts/HomepageLayout';
+import HomepageView from '../components/views/HomepageView';
 
 export default function Home() {
   return (
-    <HomepageLayout />
+    <HomepageView />
   );
 }

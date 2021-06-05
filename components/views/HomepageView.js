@@ -15,7 +15,7 @@ import {
 
 import { ResponsiveContainer } from '../containers/ResponsiveContainer';
 
-const HomepageLayout = () => (
+const HomepageView = () => (
   <ResponsiveContainer>
     <Segment style={{ padding: '8em 0em' }} vertical>
       <Grid container stackable verticalAlign='middle'>
@@ -144,4 +144,4 @@ const HomepageLayout = () => (
   </ResponsiveContainer>
 )
 
-export default HomepageLayout
+export default HomepageView

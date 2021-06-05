@@ -10,7 +10,7 @@ import {
     Sidebar,
 } from 'semantic-ui-react';
 
-import { HomepageHeading } from '../HomepageHeading';
+import { RandomQuote } from '../RandomQuote';
 import { HOME_MENU } from '../../settings/HOME_MENU';
 
 const { Media } = createMedia({
@@ -84,7 +84,7 @@ export class MobileHeader extends Component {
                     </Menu.Item>
                   </Menu>
                 </Container>
-                <HomepageHeading mobile />
+                <RandomQuote mobile />
               </Segment>
   
               {children}

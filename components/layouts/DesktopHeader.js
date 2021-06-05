@@ -9,7 +9,7 @@ import {
     Visibility,
   } from 'semantic-ui-react';
 
-import { HomepageHeading } from '../HomepageHeading';
+import { RandomQuote } from '../RandomQuote';
 import { HOME_MENU } from '../../settings/HOME_MENU';
 
 /* Heads up!
@@ -84,7 +84,7 @@ export class DesktopHeader extends Component {
                   </Menu.Item>
                 </Container>
               </Menu>
-              <HomepageHeading />
+              <RandomQuote />
             </Segment>
           </Visibility>
   
