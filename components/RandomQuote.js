@@ -40,31 +40,11 @@ export const RandomQuote = ({ mobile }) => {
     const quote = data.quote[0].q;
     const author = data.quote[0].a;
     return (
-      <Container text>
-        <Header
-          as='h1'
-          content={quote}
-          inverted
-          style={{
-            fontSize: mobile ? '2em' : '4em',
-            fontWeight: 'normal',
-            marginBottom: 0,
-            marginTop: mobile ? '1.5em' : '3em',
-          }}
-        />
-        <Header
-          as='h2'
-          content={`- ${author}`}
-          inverted
-          style={{
-            fontSize: mobile ? '1.5em' : '1.7em',
-            fontWeight: 'normal',
-            marginTop: mobile ? '0.5em' : '1.5em',
-            textAlign: 'right'
-          }}
-        />
-        
-      </Container>
+      <>
+        {quote}
+        <br />
+        {`-${author}`}
+      </>
     );
   }
   

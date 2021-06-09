@@ -8,6 +8,7 @@ import {
     Segment,
     Visibility,
   } from 'semantic-ui-react';
+import Link from 'next/link';
 
 import { RandomQuote } from '../RandomQuote';
 import { HOME_MENU } from '../../settings/HOME_MENU';
@@ -60,15 +61,19 @@ export class DesktopHeader extends Component {
                     HOME_MENU.map((item) => {
                       if (item.type === 'text') {
                         return (
-                          <Menu.Item
-                            as='a'
-                            name={item.name}
-                            key={item.name}
-                            active={activeItem === item.name}
-                            onClick={this.handleItemClick}
-                          >
-                            {item.label}
-                          </Menu.Item>);
+                          <Link href={item.name}>
+                            <Menu.Item
+                              as='a'
+                              name={item.name}
+                              key={item.name}
+                              active={activeItem === item.name}
+                              onClick={this.handleItemClick}
+                            >
+                              {item.label}
+                            </Menu.Item>
+                          </Link>
+                          
+                        );
                       }
                       
                     })
@@ -87,10 +92,9 @@ export class DesktopHeader extends Component {
               
             </Segment>
           </Visibility>
-  
           {children}
         </Media>
-      )
+      );
     }
   }
   
