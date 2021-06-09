@@ -66,7 +66,7 @@ export class MobileHeader extends Component {
               <Segment
                 inverted
                 textAlign='center'
-                style={{ minHeight: 350, padding: '1em 0em' }}
+                style={{ minHeight: 0, padding: '1em 0em' }}
                 vertical
               >
                 <Container>
@@ -84,7 +84,6 @@ export class MobileHeader extends Component {
                     </Menu.Item>
                   </Menu>
                 </Container>
-                <RandomQuote mobile />
               </Segment>
   
               {children}

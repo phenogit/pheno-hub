@@ -12,16 +12,17 @@ import {
   List,
   Segment,
 } from 'semantic-ui-react';
+import { RandomQuote } from '../RandomQuote';
 
-import { ResponsiveContainer } from '../containers/ResponsiveContainer';
+import { ResponsiveHeader } from '../headers/ResponsiveHeader';
 
-const HomepageView = () => (
-  <ResponsiveContainer>
+export const HomepageView = () => (
+  <>
     <Segment style={{ padding: '8em 0em' }} vertical>
       <Grid container stackable verticalAlign='middle'>
         <Grid.Row>
           <Grid.Column width={8}>
-            <Header as='h3' style={{ fontSize: '2em' }}>
+           <Header as='h3' style={{ fontSize: '2em' }}>
               We Help Companies and Companions
             </Header>
             <p style={{ fontSize: '1.33em' }}>
@@ -141,7 +142,5 @@ const HomepageView = () => (
         </Grid>
       </Container>
     </Segment>
-  </ResponsiveContainer>
-)
-
-export default HomepageView
+  </>
+);

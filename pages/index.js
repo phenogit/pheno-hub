@@ -1,7 +1,10 @@
-import HomepageView from '../components/views/HomepageView';
+import { DefaultLayout } from '../components/layouts/DefaultLayout';
+import { HomepageView } from '../components/views/HomepageView';
 
 export default function Home() {
   return (
-    <HomepageView />
+    <DefaultLayout>
+      <HomepageView />
+    </DefaultLayout>
   );
 }
