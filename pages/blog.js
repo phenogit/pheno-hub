@@ -3,7 +3,7 @@ import { BlogpageView } from '../components/views/BlogpageView';
 
 export default function Blog() {
   return (
-    <Layout title="Kandan">
+    <Layout title="Blog">
       <BlogpageView />
     </Layout>
   );
