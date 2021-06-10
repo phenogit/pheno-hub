@@ -7,7 +7,7 @@ export function Layout({
   title = 'This is the default title',
 }) {
   return (
-    <div>
+    <div className="content">
       <Head>
         <title>{title}</title>
         <meta charSet="utf-8" />
@@ -15,6 +15,9 @@ export function Layout({
       </Head>
       <header>
         <nav>
+          <div className="logo">
+            <h1>Pheno Hub</h1>
+          </div>
           <Link href="/">
             <a>Home</a>
           </Link>{' '}
