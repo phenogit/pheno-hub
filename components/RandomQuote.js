@@ -1,12 +1,12 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import {
-  Container,
-  Header,
   Dimmer,
   Loader
 } from 'semantic-ui-react';
 import useSWR from 'swr';
+
+import styles from '../styles/RandomQuote.module.css';
 
 const randomQuoteFetcher = async (url) => {
   const res = await fetch(url);
@@ -41,9 +41,12 @@ export const RandomQuote = ({ mobile }) => {
     const author = data.quote[0].a;
     return (
       <>
-        {quote}
-        <br />
-        {`-${author}`}
+        <div className={styles.quote}>
+          {quote}
+        </div>
+        <div className={styles.author}>
+          {`-${author}`}
+        </div>
       </>
     );
   }
