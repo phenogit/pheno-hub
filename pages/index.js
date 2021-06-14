@@ -7,7 +7,6 @@ export default function Home() {
   return (
     <div>
       <Layout title="Home">
-        <h1 className={styles.title}>Cool Quote</h1>
         <HomepageView />
       </Layout>
     </div>

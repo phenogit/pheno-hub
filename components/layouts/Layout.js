@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Head from 'next/head';
-
+import Image from 'next/image';
 
 export function Layout({
   children,
@@ -16,25 +16,18 @@ export function Layout({
       <header>
         <nav>
           <div className="logo">
-            <h1>Pheno Hub</h1>
+            <Image src="/logo.png" width={77} height={77} />
+            Pheno Hub
           </div>
-          <Link href="/">
-            <a>Home</a>
-          </Link>{' '}
-          |
-          <Link href="/kandan">
-            <a>Kandan</a>
-          </Link>{' '}
-          |
-          <Link href="/blog">
-            <a>Blog</a>
-          </Link>
+          <Link href="/"><a>Home</a></Link>
+          <Link href="/kandan"><a>Kandan</a></Link>
+          <Link href="/blog"><a>Blog</a></Link>
         </nav>
       </header>
 
       {children}
 
-      <footer>{'I`m here to stay'}</footer>
+      <footer>{'Some sexy footer for the future'}</footer>
     </div>
   )
 }
