@@ -1,5 +1,8 @@
 import styles from '../styles/Blog.module.css';
+
 import { promises as fsPromises } from 'fs';
+import ms from 'ms';
+import Link from 'next/Link';
 
 import { Layout } from '../components/layouts/Layout';
 import { BlogpageView } from '../components/views/BlogpageView';
@@ -31,8 +34,18 @@ export default function Blog({ postList }) {
     <Layout title="Blog">
       {
         postList.map(post => (
-          <div className={styles.single} key={`${post.updatedAt}-${post.slug}`}>
-            {`${post.updatedAt}: ${post.title}`}
+          <div
+            key={`${post.updatedAt}-${post.slug}`}
+            className={styles.postLink}
+          >
+            <Link href='/blog/post/[slug]' as={`/blog/post/${post.slug}`}>
+              <a>
+                {`${post.title}`}
+                <div className={styles.timeDiff}>
+                  Updated {ms(Date.now() - post.updatedAt, { long: true })} ago
+                </div>
+              </a>
+            </Link>
           </div>
         ))
       }

@@ -1,4 +1,4 @@
-.single {
+.postLink {
   padding: 2px 16px;
   background: #fff;
   display: block;
@@ -6,6 +6,12 @@
   border-left: 8px solid #fff;
 }
 
-.single:hover {
+.postLink:hover {
   border-left: 8px solid #4979ff;
+}
+
+.postLink .timeDiff {
+  color: #666;
+  font-size: 13px;
+  text-align: right;
 }

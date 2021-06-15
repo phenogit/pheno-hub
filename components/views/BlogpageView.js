@@ -5,6 +5,6 @@ import React from 'react';
 
 export const BlogpageView = () => (
   <>
-    This will be my blog
+    Referencing bulletproof-nextjs
   </>
 );
