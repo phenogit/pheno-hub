@@ -2,7 +2,7 @@ import styles from '../styles/Blog.module.css';
 
 import { promises as fsPromises } from 'fs';
 import ms from 'ms';
-import Link from 'next/Link';
+import Link from 'next/link';
 
 import { Layout } from '../components/layouts/Layout';
 import { BlogpageView } from '../components/views/BlogpageView';
