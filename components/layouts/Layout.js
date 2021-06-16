@@ -27,7 +27,7 @@ export function Layout({
 
       {children}
 
-      <footer>{'Some sexy footer for the future'}</footer>
+      <footer>{'pheno_the_best"at"yahoo.com.tw'}</footer>
     </div>
   )
 }
