@@ -27,7 +27,9 @@ export function Layout({
 
       {children}
 
-      <footer>{'pheno_the_best"at"yahoo.com.tw'}</footer>
+      <footer>
+        <Image src="/email.png" width={314} height={23} />
+      </footer>
     </div>
   )
 }
