@@ -2,6 +2,7 @@ import { promises as fsPromises } from "fs";
 import Markdown from "markdown-to-jsx";
 
 import { Layout } from "../../../components/layouts/Layout";
+import { TedTalk } from "../../../components/TedTalk";
 
 export async function getStaticProps({ params }) {
   const [year, month, day, ...rest] = params.slug.split("-");
@@ -42,7 +43,15 @@ export async function getStaticPaths() {
 export default function Post({ post }) {
   return (
     <Layout title="Post">
-      <Markdown>{post.content}</Markdown>
+      <Markdown
+        options={{
+          overrides: {
+            TedTalk: { component: TedTalk },
+          },
+        }}
+      >
+        {post.content}
+      </Markdown>
     </Layout>
   );
 }
