@@ -26,15 +26,15 @@ export async function getStaticProps({ params }) {
 }
 
 export async function getStaticPaths() {
+  const markdownFiles = await fsPromises.readdir("data/blog");
+  const paths = markdownFiles.map((filename) => {
+    const slug = filename.replace(/.md$/, "");
+    return {
+      params: { slug },
+    };
+  });
   return {
-    paths: [
-      {
-        params: { slug: "2021-06-15-Hello-World" },
-      },
-      {
-        params: { slug: "2021-01-26-Kit's-Korner-Notes" },
-      },
-    ],
+    paths,
     fallback: false,
   };
 }
