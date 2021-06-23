@@ -1,8 +1,20 @@
----
-layout: page
-title: Notes on Kit's Korner
-permalink: /kit-korner-notes/
----
+Table of Contents
+
+- [Non-Competitive Bidding](#non-competitive-bidding)
+  - [Meta Rules](#meta-rules)
+  - [Bidding Tree](#bidding-tree)
+- [Competitive Bidding](#competitive-bidding)
+  - [Meta Rules](#meta-rules-1)
+  - [Misc](#misc)
+- [Modules](#modules)
+- [Carding](#carding)
+  - [Meta Rules](#meta-rules-2)
+    - [NT](#nt)
+      - [General](#general)
+      - [Opening Leads](#opening-leads)
+    - [Suit](#suit)
+      - [General](#general-1)
+      - [Opening Leads](#opening-leads-1)
 
 Currently On:
 Overcome the Split

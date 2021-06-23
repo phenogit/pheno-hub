@@ -29,7 +29,10 @@ export async function getStaticPaths() {
   return {
     paths: [
       {
-        params: { slug: "2021-01-26-Kit-Korner-Notes" },
+        params: { slug: "2021-06-15-Hello-World" },
+      },
+      {
+        params: { slug: "2021-01-26-Kit's-Korner-Notes" },
       },
     ],
     fallback: false,
