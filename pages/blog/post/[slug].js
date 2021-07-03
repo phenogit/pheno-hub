@@ -1,5 +1,6 @@
 import { promises as fsPromises } from "fs";
 import Markdown from "markdown-to-jsx";
+import { useRouter } from "next/router";
 
 import { Layout } from "../../../components/layouts/Layout";
 import { TedTalk } from "../../../components/TedTalk";
@@ -14,7 +15,7 @@ export async function getStaticPaths() {
   });
   return {
     paths,
-    fallback: false,
+    fallback: true,
   };
 }
 
@@ -41,6 +42,11 @@ export async function getStaticProps({ params }) {
 }
 
 export default function Post({ post }) {
+  const router = useRouter();
+  if (router.isFallback) {
+    return <Layout title="hmmm...">Loading...</Layout>;
+  }
+
   return (
     <Layout title="Post">
       <Markdown
