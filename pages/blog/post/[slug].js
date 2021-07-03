@@ -23,11 +23,17 @@ export async function getStaticProps({ params }) {
   const [year, month, day, ...rest] = params.slug.split("-");
   const updatedAt = new Date(`${year} ${month} ${day}`).getTime();
   const title = rest.join(" ");
+  let content = null;
 
-  const content = await fsPromises.readFile(
-    `data/blog/${params.slug}.md`,
-    "utf8"
-  );
+  try {
+    content = await fsPromises.readFile(`data/blog/${params.slug}.md`, "utf8");
+  } catch (err) {
+    return {
+      props: {
+        post: null,
+      },
+    };
+  }
 
   return {
     props: {
@@ -38,6 +44,7 @@ export async function getStaticProps({ params }) {
         updatedAt,
       },
     },
+    revalidate: 2,
   };
 }
 
@@ -45,6 +52,9 @@ export default function Post({ post }) {
   const router = useRouter();
   if (router.isFallback) {
     return <Layout title="hmmm...">Loading...</Layout>;
+  }
+  if (!post) {
+    return <Layout title="post not exist">What article is this?</Layout>;
   }
 
   return (
