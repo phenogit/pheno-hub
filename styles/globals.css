@@ -42,3 +42,6 @@ footer {
   color: #4979ff;
   text-decoration: underline;
 }
+.cursor {
+  cursor: pointer;
+}
