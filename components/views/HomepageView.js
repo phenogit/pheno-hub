@@ -6,8 +6,6 @@ import { RandomQuote } from "../RandomQuote";
 export const HomepageView = () => (
   <>
     <h1 className={styles.title}>Cool Quote</h1>
-    {/* zen quote has errors
     <RandomQuote />
-    */}
   </>
 );

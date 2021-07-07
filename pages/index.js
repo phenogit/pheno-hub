@@ -1,7 +1,6 @@
 import { Layout } from "../components/layouts/Layout";
 import { HomepageView } from "../components/views/HomepageView";
 
-/* problem with zenquote
 export const getStaticProps = async () => {
   const res = await fetch("https://zenquotes.io/api/random");
   const data = await res.json();
@@ -11,7 +10,6 @@ export const getStaticProps = async () => {
     },
   };
 };
-*/
 
 export default function Home() {
   return (
