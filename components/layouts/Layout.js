@@ -1,8 +1,21 @@
 import Link from "next/link";
 import Head from "next/head";
 import Image from "next/image";
+import { useSession, signIn, signOut } from "next-auth/client";
 
 export function Layout({ children, title = "This is the default title" }) {
+  const [session] = useSession();
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    signIn("github");
+  };
+
+  const handleLogout = (e) => {
+    e.preventDefault();
+    signOut();
+  };
+
   return (
     <div className="content">
       <Head>
@@ -28,6 +41,18 @@ export function Layout({ children, title = "This is the default title" }) {
           <Link href="/blog">
             <a>Blog</a>
           </Link>
+          {session ? (
+            <>
+              <a href="#" onClick={handleLogout}>
+                | Logout
+              </a>
+              <Image src={session.user.image} width={30} height={30} />
+            </>
+          ) : (
+            <a href="#" onClick={handleLogin}>
+              | Login
+            </a>
+          )}
         </nav>
       </header>
 
