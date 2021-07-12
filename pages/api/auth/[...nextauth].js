@@ -12,6 +12,12 @@ const callbacks = {};
 
 const options = {
   providers,
+  session: {
+    jwt: true,
+  },
+  jwt: {
+    secret: process.env.JWT_SECRET,
+  },
   callbacks,
 };
 
