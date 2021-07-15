@@ -45,10 +45,7 @@ export default function Blog({ postList }) {
               <a>
                 {`${post.title}`}
                 <div className={styles.timeDiff}>
-                  {`${updateTime.toDateString()}, ${ms(
-                    Date.now() - post.updatedAt,
-                    { long: true }
-                  )} ago`}
+                  {`${updateTime.toDateString().split(" ").slice(1).join(" ")}`}
                 </div>
               </a>
             </Link>
