@@ -30,7 +30,6 @@ export const getStaticProps = async () => {
 
 export default function Blog({ postList }) {
   const sortedPostList = postList.sort((a, b) => b.updatedAt - a.updatedAt);
-
   return (
     <Layout title="Blog">
       {sortedPostList.map((post) => {

@@ -57,8 +57,16 @@ export default function Post({ post }) {
     return <Layout title="post not exist">What article is this?</Layout>;
   }
 
+  const updateTime = new Date(post.updatedAt);
   return (
     <Layout title="Post">
+      <h1>
+        {`${post.title}-(${updateTime
+          .toDateString()
+          .split(" ")
+          .slice(1)
+          .join(" ")})`}
+      </h1>
       <Markdown
         options={{
           overrides: {
