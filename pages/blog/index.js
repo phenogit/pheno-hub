@@ -4,7 +4,6 @@ import { promises as fsPromises } from "fs";
 import Link from "next/link";
 
 import { Layout } from "../../components/layouts/Layout";
-import { BlogpageView } from "../../components/views/BlogpageView";
 
 export const getStaticProps = async () => {
   const markdownFiles = await fsPromises.readdir("data/blog");
