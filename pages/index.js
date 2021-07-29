@@ -1,5 +1,7 @@
+import styles from "../styles/Home.module.css";
+
 import { Layout } from "../components/layouts/Layout";
-import { HomepageView } from "../components/views/HomepageView";
+import { RandomQuote } from "../components/RandomQuote";
 
 export const getStaticProps = async () => {
   const res = await fetch("https://zenquotes.io/api/random");
@@ -15,7 +17,7 @@ export default function Home() {
   return (
     <div>
       <Layout title="Home">
-        <HomepageView />
+        <RandomQuote className={styles.title} />
       </Layout>
     </div>
   );
