@@ -5,7 +5,7 @@ import githubCms from "../../lib/github-cms";
 
 import { Layout } from "../../components/layouts/Layout";
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const postList = await githubCms.getPostList();
 
   return {
