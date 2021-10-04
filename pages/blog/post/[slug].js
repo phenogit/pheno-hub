@@ -21,7 +21,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const [year, month, day, ...rest] = params.slug.split("-");
-  const updatedAt = new Date(`${year} ${month} ${day}`).getTime();
+  const createdAt = new Date(`${year} ${month} ${day}`).getTime();
   const title = rest.join(" ");
   let content = null;
 
@@ -41,7 +41,7 @@ export async function getStaticProps({ params }) {
         slug: params.slug,
         title,
         content,
-        updatedAt,
+        createdAt,
       },
     },
     revalidate: 2,
@@ -57,7 +57,7 @@ export default function Post({ post }) {
     return <Layout title="post not exist">What article is this?</Layout>;
   }
 
-  const updateTime = new Date(post.updatedAt);
+  const updateTime = new Date(post.createdAt);
   return (
     <Layout title="Post">
       <h1>

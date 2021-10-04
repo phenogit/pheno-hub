@@ -1,41 +1,29 @@
 import styles from "../../styles/Blog.module.css";
 
-import { promises as fsPromises } from "fs";
 import Link from "next/link";
+import githubCms from "../../lib/github-cms";
 
 import { Layout } from "../../components/layouts/Layout";
 
-export const getStaticProps = async () => {
-  const markdownFiles = await fsPromises.readdir("data/blog");
-  const postList = markdownFiles.map((filename) => {
-    const slug = filename.replace(/.md$/, "");
-    const [year, month, date, ...rest] = slug.split("-");
-    const updatedAt = new Date(`${year} ${month} ${date}`).getTime();
-    const title = rest.join(" ");
-
-    return {
-      slug,
-      updatedAt,
-      title,
-    };
-  });
+export async function getServerSideProps() {
+  const postList = await githubCms.getPostList();
 
   return {
     props: {
       postList,
     },
   };
-};
+}
 
 export default function Blog({ postList }) {
-  const sortedPostList = postList.sort((a, b) => b.updatedAt - a.updatedAt);
+  const sortedPostList = postList.sort((a, b) => b.createdAt - a.createdAt);
   return (
     <Layout title="Blog">
       {sortedPostList.map((post) => {
-        const updateTime = new Date(post.updatedAt);
+        const updateTime = new Date(post.createdAt);
         return (
           <div
-            key={`${post.updatedAt}-${post.slug}`}
+            key={`${post.createdAt}-${post.slug}`}
             className={styles.postLink}
           >
             <Link href="/blog/post/[slug]" as={`/blog/post/${post.slug}`}>
