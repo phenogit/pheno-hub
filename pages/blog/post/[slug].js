@@ -1,50 +1,17 @@
-import { promises as fsPromises } from "fs";
 import Markdown from "markdown-to-jsx";
 import { useRouter } from "next/router";
+import githubCms from "../../../lib/github-cms";
 
 import { Layout } from "../../../components/layouts/Layout";
 import { TedTalk } from "../../../components/TedTalk";
 
-export async function getStaticPaths() {
-  const markdownFiles = await fsPromises.readdir("data/blog");
-  const paths = markdownFiles.map((filename) => {
-    const slug = filename.replace(/.md$/, "");
-    return {
-      params: { slug },
-    };
-  });
-  return {
-    paths,
-    fallback: true,
-  };
-}
-
-export async function getStaticProps({ params }) {
-  const [year, month, day, ...rest] = params.slug.split("-");
-  const createdAt = new Date(`${year} ${month} ${day}`).getTime();
-  const title = rest.join(" ");
-  let content = null;
-
-  try {
-    content = await fsPromises.readFile(`data/blog/${params.slug}.md`, "utf8");
-  } catch (err) {
-    return {
-      props: {
-        post: null,
-      },
-    };
-  }
+export async function getServerSideProps({ params }) {
+  const post = await githubCms.getPost(params.slug);
 
   return {
     props: {
-      post: {
-        slug: params.slug,
-        title,
-        content,
-        createdAt,
-      },
+      post,
     },
-    revalidate: 2,
   };
 }
 
