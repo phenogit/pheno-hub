@@ -2,16 +2,32 @@ import Markdown from "markdown-to-jsx";
 import { useRouter } from "next/router";
 import githubCms from "../../../lib/github-cms";
 
+import styles from "../../../styles/Blog.module.css";
 import { Layout } from "../../../components/layouts/Layout";
 import { TedTalk } from "../../../components/TedTalk";
 
-export async function getServerSideProps({ params }) {
+export async function getStaticPaths() {
+  const postList = await githubCms.getPostList();
+  const paths = postList.map((post) => ({
+    params: {
+      slug: post.slug,
+    },
+  }));
+
+  return {
+    paths,
+    fallback: true,
+  };
+}
+
+export async function getStaticProps({ params }) {
   const post = await githubCms.getPost(params.slug);
 
   return {
     props: {
       post,
     },
+    revalidate: 2,
   };
 }
 
@@ -27,13 +43,10 @@ export default function Post({ post }) {
   const updateTime = new Date(post.createdAt);
   return (
     <Layout title="Post">
-      <h1>
-        {`${post.title}-(${updateTime
-          .toDateString()
-          .split(" ")
-          .slice(1)
-          .join(" ")})`}
-      </h1>
+      <div className={styles.time}>
+        Updated {`${updateTime.toDateString()}`}
+      </div>
+      <h1>{`${post.title}`}</h1>
       <Markdown
         options={{
           overrides: {

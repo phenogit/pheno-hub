@@ -18,3 +18,8 @@
   justify-content: flex-end;
   align-items: flex-end;
 }
+
+.post .time {
+  color: #666;
+  font-size: 13px;
+}
