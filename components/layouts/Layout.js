@@ -5,6 +5,7 @@ import { useSession, signIn, signOut } from "next-auth/client";
 
 export function Layout({ children, title = "This is the default title" }) {
   const [session] = useSession();
+  console.log("SESSION", session);
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -43,10 +44,11 @@ export function Layout({ children, title = "This is the default title" }) {
           </Link>
           {session ? (
             <>
+              | {session.user.name}
+              <Image src={session.user.image} width={30} height={30} />
               <a href="#" onClick={handleLogout}>
                 | Logout
               </a>
-              <Image src={session.user.image} width={30} height={30} />
             </>
           ) : (
             <a href="#" onClick={handleLogin}>

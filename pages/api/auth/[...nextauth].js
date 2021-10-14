@@ -10,6 +10,14 @@ const providers = [
 
 const callbacks = {};
 
+callbacks.signIn = async function signIn(user, account, metadata) {
+  const emailRes = await fetch("https://api.github.com/user/emails", {
+    headers: {
+      Authorization: `token ${account.accessToken}`,
+    },
+  });
+};
+
 const options = {
   providers,
   session: {
