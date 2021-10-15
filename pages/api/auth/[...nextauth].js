@@ -16,6 +16,10 @@ callbacks.signIn = async function signIn(user, account, metadata) {
       Authorization: `token ${account.accessToken}`,
     },
   });
+  const emails = await emailRes.json();
+  const primaryEmail = emails.find((mail) => mail.primary).email;
+
+  user.email = primaryEmail;
 };
 
 const options = {
