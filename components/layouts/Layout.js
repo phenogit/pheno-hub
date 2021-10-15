@@ -44,8 +44,14 @@ export function Layout({ children, title = "This is the default title" }) {
           </Link>
           {session ? (
             <>
-              | {session.user.name}
-              <Image src={session.user.image} width={30} height={30} />
+              | {session.user.github.name}
+              {
+                <Image
+                  src={session.user.github.avatar}
+                  width={30}
+                  height={30}
+                />
+              }
               <a href="#" onClick={handleLogout}>
                 | Logout
               </a>
