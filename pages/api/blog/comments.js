@@ -1,4 +1,5 @@
 import { getComments, addComment } from "../../../lib/data";
+import { getSession } from "next-auth/client";
 
 export default async function comments(req, res) {
   const { slug } = req.query;
@@ -9,15 +10,20 @@ export default async function comments(req, res) {
   }
 
   if (req.method === "POST") {
+    if (!session) {
+      res.status(401).send("Unauthorized");
+      return;
+    }
+
     const comment = {
-      userId: "user-id",
-      name: "The User",
-      avatar: "https://api.adorable.io/avatars/255/the-user@email.png",
+      userId: session.user.id,
+      name: session.user.profile.name,
+      avatar: session.user.profile.avatar,
       content: req.body.content,
       createdAt: Date.now(),
     };
 
-    // Slow the API to demonstrate real-life behavior.
+    // Slow the API to demonstrate real life behavior
     await new Promise((r) => setTimeout(r, 600));
 
     await addComment(slug, comment);

@@ -5,6 +5,7 @@ import githubCms from "../../../lib/github-cms";
 import styles from "../../../styles/Blog.module.css";
 import { Layout } from "../../../components/layouts/Layout";
 import { TedTalk } from "../../../components/TedTalk";
+import Comments from "../../../components/Comments";
 
 export async function getStaticPaths() {
   const postList = await githubCms.getPostList();
@@ -56,6 +57,8 @@ export default function Post({ post }) {
       >
         {post.content}
       </Markdown>
+      <b>Comments</b>
+      <Comments slug={post.slug} />
     </Layout>
   );
 }
